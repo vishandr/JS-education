@@ -40,3 +40,57 @@ setInterval (function(){
         y = Math.floor(Math.random()*200);
     }
 }, 24);
+
+
+// рисуем пчелу
+//1. функция для рисования окружностей
+
+let circle = function(X, Y, radius, fillCircle){
+    ctx1.beginPath();
+    ctx1.arc(X, Y, radius, 0, Math.PI*2, false); // создаем окружность с центром в точке X,Y
+    if(fillCircle){
+        ctx1.fill();
+    }else {
+        ctx1.stroke()
+    }
+}
+
+//2. функция, которая рисует пчелу
+let drawBee = function(X, Y){
+    ctx1.linewidth = 2;
+    ctx1.strokeStile = "Black";
+    ctx1.fillStile = "Gold";
+
+    circle(X, Y, 8, true); //рисуем тело
+    circle(X, Y, 8, false);
+    circle(X-5, Y-11, 5, false);//рисуем крылья
+    circle(X+5, Y-11, 5, false);
+    circle(X-2, Y-1, 2, false);//рисуем глаза
+    circle(X+2, Y-1, 2, false);
+};
+
+//Изменение позиции пчелы
+let update = function (coordinate) {
+    let offset = Math.random() * 4 - 2; // определяем, на сколько будем смещать координату
+    coordinate += offset;
+    if (coordinate > 200) { // проверяем≤ чтоб пчела не вылетела за границу
+      coordinate = 200;
+    }
+    if (coordinate < 0) {
+      coordinate = 0;
+    }
+    return coordinate;
+}
+
+//Анимируем пчелу
+let canvas3 = document.getElementById("canvas3");
+      let ctx1 = canvas3.getContext("2d");
+      let X = 100;
+      let Y = 100;
+setInterval(function () {
+ctx1.clearRect(0, 0, 200, 200);
+drawBee(X, Y); 
+X = update(X); 
+Y = update(Y);
+ctx1.strokeRect(0, 0, 200, 200); 
+}, 30);
