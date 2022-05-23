@@ -58,8 +58,8 @@ let circle = function(X, Y, radius, fillCircle){
 //2. функция, которая рисует пчелу
 let drawBee = function(X, Y){
     ctx1.linewidth = 2;
-    ctx1.strokeStile = "Black";
-    ctx1.fillStile = "Gold";
+    ctx1.strokeStyle = "black";
+    ctx1.fillStyle = "gold";
 
     circle(X, Y, 8, true); //рисуем тело
     circle(X, Y, 8, false);
@@ -88,9 +88,9 @@ let canvas3 = document.getElementById("canvas3");
       let X = 100;
       let Y = 100;
 setInterval(function () {
-ctx1.clearRect(0, 0, 200, 200);
-drawBee(X, Y); 
-X = update(X); 
+ctx1.clearRect(0, 0, 200, 200); // очистили холст
+drawBee(X, Y); // нарисовали пчелу
+X = update(X); // обновили координаты X и Y
 Y = update(Y);
-ctx1.strokeRect(0, 0, 200, 200); 
 }, 30);
+
