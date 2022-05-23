@@ -94,3 +94,52 @@ X = update(X); // обновили координаты X и Y
 Y = update(Y);
 }, 30);
 
+
+//Переходим к заданию по отрисовке мяча
+//создаем конструктор для создания мячей
+let Ball = function(){
+    this.xx = 100;
+    this.yy = 100;
+    this.xSpeed = 3;
+    this.ySpeed = -5;
+}
+
+//метод draw для отрисовки мяча
+let circleBall = function(xx, yy, radius, fillCircle){
+ctx4.beginPath();
+ctx4.arc(xx, yy, radius, 0, Math.PI*2, false);
+if(fillCircle){
+    ctx4.fill();
+}else{
+    ctx4.stroke();
+}
+};
+
+Ball.prototype.draw = function(){
+    circleBall(this.xx, this.yy, 5, true)
+}
+
+Ball.prototype.move = function () { // метод для движения мяча
+    this.xx += this.xSpeed;
+    this.yy += this.ySpeed;
+};
+
+//проверка, не столкнулся ли мяч с границей «холста»
+Ball.prototype.checkCollision = function () {
+    if (this.xx < 0 || this.xx > 200) {
+      this.xSpeed = -this.xSpeed;
+    }
+    if (this.yy < 0 || this.yy > 200) {
+      this.ySpeed = -this.ySpeed;
+} };
+
+//теперь отрисуем мяч и вызовем методы проверки и обновления позиции мяча
+let canvas4 = document.getElementById('canvas4');
+let ctx4 = canvas4.getContext('2d');
+let ball = new Ball();
+setInterval(function() {
+    ctx4.clearRect(0, 0, 200, 200);
+    ball.draw(); 
+    ball.move();
+    ball.checkCollision();
+    }, 30);
