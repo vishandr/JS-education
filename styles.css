@@ -1,0 +1,11 @@
+body{
+    margin: 20px;
+}
+
+h1{
+    color: red;
+}
+
+canvas{
+    border: solid black 1px;
+}
