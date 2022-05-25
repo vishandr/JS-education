@@ -171,30 +171,30 @@ let Ball2 = function(){
     this.ySpeed = 0;
 }
 
+// Обновляем позицию мяча соответственно его скорости
 Ball2.prototype.move = function(){
     this.x += this.xSpeed;
     this.y += this.ySpeed;
-
     if (this.x < 0){
         this.x = width;
     }else if(this.x > width){
         this.x = 0;
-    }
-    if (this.y < 0){
+    }else if (this.y < 0){
         this.y = height;
     }else if (this.y > height){
         this.y = 0;
     }
 }
 
+// Рисуем мяч в его текущей позиции
 Ball2.prototype.draw = function(){
     circleBallKeys (this.x, this.y, 10, true)
 }
 
-let ball2 = new Ball2() // создаем мяч
+// Создаем объект-мяч
+let ball2 = new Ball2()
 
-//создаем метод, который будет управлять направлением мяча и 
-// вызываться обработчиком событий keydown 
+// Задаем направление движения по строке с названием действия
 Ball2.prototype.setDirection = function (direction) {
     if (direction === "up") {
       this.xSpeed = 0;
@@ -214,7 +214,7 @@ Ball2.prototype.setDirection = function (direction) {
     }
 };
 
-
+// Объект для перевода кодов клавиш в названия действий
 let keyActions = { 
     32: "stop",
     37: "left",
