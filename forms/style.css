@@ -1,0 +1,119 @@
+h1 {color: #ff0000;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+h2 {color: blue}
+
+.paragraph {
+color: #7300e5;
+background: #ECF5E4;
+font-size: 1.5rem;
+padding: 20px;
+margin: 0 auto;
+width: 50%;
+text-align-last: center;
+}
+
+.new-font {font-family: Verdana;}
+.new-font {font-family: Verdana;}
+.cross {text-decoration: line-through;}
+.content {
+    width: 80%;
+    margin: auto;
+    display: inline-flex;
+    flex-direction: row-reverse;
+   }
+  
+
+button {
+    background: #40d273d2; /* Красный фон */
+    /* color: rgb(0, 0, 0); Белый цвет текста */
+    /* border: none; Убираем рамку */
+    /* border-radius: 2px 2px 2px 2px; Скругляем углы */
+    padding: .7rem 2rem;  /*Поля вокруг текста
+    /* box-shadow: 5px 5px 0 #000; Параметры тени */
+    /* position: relative; Относительное позиционирование */
+    /* left: 0; Положение слева */
+    /* top: 0; Положение сверху */
+    /* transition: 0.1s; */
+    font-size: 1.3rem;
+    margin: 20px;
+    cursor: pointer;
+   } 
+
+/* button:hover {
+    left: 5px; /* Положение слева */
+    /* top: 5px;  */
+    /* box-shadow: 0 0 0 rgb(245, 34, 11);  */
+   /* }  */
+
+   .space{
+    width: 80%;
+    margin: auto;
+    padding: 20px; /* Поля */
+    background: #F6E8D7; /* Цвет фона */
+    border: 2px dotted #22b70b; /* Параметры рамки */
+   }
+  
+   .gradient {
+    /* Градиент */
+    background: linear-gradient(to top, #cfe7fa, #6393c1);
+    padding: 10px; /* Толщина рамки */
+    width: 80%;
+    margin: auto;
+   }
+   .gradient > div {
+    background: #fff; /* Белый цвет фона */
+    padding: 20px; /* Поля вокруг текста */
+   }
+
+   p{
+       width: 50%;
+       margin: 0 auto;
+       font-size: 1.5rem;
+       padding: 8px;
+   }
+
+   input {
+       width: 400px;
+       height: 50px;
+       padding: 2px;
+       margin-left: 20px;
+       font-size: 1.8rem;
+   }
+
+   .out{
+       margin-top: 20px;
+       margin-left: 20px;
+       padding: 8px;
+       font-size: 1.8rem;
+       border: 2px solid black;
+       width: 600px;
+       height: 100px;
+   }
+   
+.form {
+    border: solid black 1px;
+    margin: 10px auto;
+    padding: 5px;
+    width: 600px;
+}
+
+/* .wrapper {
+    display: flex;
+} */
+
+.inputButton{
+    height: 50px;
+}
+
+#pdr{
+    width: 50px;
+    margin:  0 20px 0 100px;
+}
+
+label{
+    /* position:absolute; */
+    font-size: 1.3rem;
+}
