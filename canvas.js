@@ -143,3 +143,93 @@ setInterval(function() {
     ball.move();
     ball.checkCollision();
     }, 30);
+
+
+// мяч с управлением с кнопок
+// Сначала нам нужно найти элемент canvas и получить контекст рисования
+let canvasBall = document.getElementById('canvasBall');
+let ctxBall = canvasBall.getContext('2d');
+let width = canvasBall.width;
+let height = canvasBall.height;
+
+//функция для отрисовки окружнностей
+let circleBallKeys = function(x, y, radius, fillCircle){
+    ctxBall.beginPath();
+    ctxBall.arc(x, y, radius, 0, Math.PI*2, false); // создаем окружность с центром в точке X,Y
+    if(fillCircle){
+        ctxBall.fill();
+    }else {
+        ctxBall.stroke()
+    }
+}
+
+//создаем конструктор для создания мячей
+let Ball2 = function(){
+    this.x = width / 2;
+    this.y = height / 2;
+    this.xSpeed = 5;
+    this.ySpeed = 0;
+}
+
+Ball2.prototype.move = function(){
+    this.x += this.xSpeed;
+    this.y += this.ySpeed;
+
+    if (this.x < 0){
+        this.x = width;
+    }else if(this.x > width){
+        this.x = 0;
+    }
+    if (this.y < 0){
+        this.y = height;
+    }else if (this.y > height){
+        this.y = 0;
+    }
+}
+
+Ball2.prototype.draw = function(){
+    circleBallKeys (this.x, this.y, 10, true)
+}
+
+let ball2 = new Ball2() // создаем мяч
+
+//создаем метод, который будет управлять направлением мяча и 
+// вызываться обработчиком событий keydown 
+Ball2.prototype.setDirection = function (direction) {
+    if (direction === "up") {
+      this.xSpeed = 0;
+      this.ySpeed = -5;
+    } else if (direction === "down") {
+      this.xSpeed = 0;
+      this.ySpeed = 5;
+    } else if (direction === "left") {
+      this.xSpeed = -5;
+      this.ySpeed = 0;
+    } else if (direction === "right") {
+      this.xSpeed = 5;
+      this.ySpeed = 0;
+    } else if (direction === "stop") {
+      this.xSpeed = 0;
+      this.ySpeed = 0;
+    }
+};
+
+
+let keyActions = { 
+    32: "stop",
+    37: "left",
+    38: "up",
+    39: "right",
+    40: "down" };
+
+    document.addEventListener('keydown', function (event) {
+        let direction = keyActions[event.keyCode];
+        ball2.setDirection(direction);
+    });
+
+
+setInterval(function(){
+ctxBall.clearRect(0, 0, width, height); //очищаем холст
+ball2.draw() // рисуем мяч
+ball2.move() // считаем новые координаты для мяча
+}, 30)
