@@ -1,0 +1,28 @@
+.container{
+    background: rgb(200, 200, 200);
+    padding: 20px;
+    width: 800px;
+    margin: 0 auto;;
+}
+
+.slider{
+    width: 600px;
+    height: 400px;
+    border: 2px solid black;
+    margin: 30px auto;
+    overflow: hidden;
+}
+
+.slider-line{
+    height: 400px;
+    width: 2400px;
+    background: rgb(225, 250, 168);
+    display: flex;
+    position: relative;
+    left: 0px;
+    transition: all ease 0.8s;
+}
+
+button{
+    margin: 5px auto;
+}
